@@ -16,6 +16,10 @@
             h2 {
                 color: blue;
             }
+            code {
+            font-family: monospace;
+            background: hsl(220, 80%, 90%); 
+            }
         </style>
     </head>
 
@@ -56,7 +60,51 @@
 
         <p>So I'm going to do all of the suggested exercises, and see if I can expand upon them, as well as do them in both QB64 and Matlab/Octave.
 
-        <p>The first program is "factorial.bas", which just computes the factorial in the traditional recursive way. Adorable.
+        <p>The first program is "factorial.bas", which just computes the factorial in the traditional recursive way. Adorable. This wasn't in the book, but I thought for
+             exposition it had to be added - plus more experience with BASIC/QB64. 
+             <p>  <!-- language: lang-vb -->
+                 
+                <pre><code>
+                REM Factorial computation, in the traditional recursive style
+                DIM a
+                a = Factorial!(5)
+                PRINT "Factorial(5):"; a
+                    
+                    
+                FUNCTION Factorial! (N!)
+                IF N! = 0 THEN Factorial! = 1 ELSE Factorial! = N! * Factorial!(N! - 1)
+                END FUNCTION</code></pre>
+
+            <p>There's obviously some point to reading SICP, because if you see this you should recognize that it can be transformed (either by tail-call recursion or manually) into 
+                a simple for loop:
+
+                <pre>
+                    <code>
+                            REM Factorial computation in a for loop style
+                            DIM a
+                            a = Factorial!(5)
+                            PRINT "Factorial(5):"; a
+                            
+                            
+                            FUNCTION Factorial! (N!)
+                                REM Declare an accumulation variable
+                                DIM ACC
+                                ACC = 1
+                                FOR I = 0 TO N
+                                    IF I = 0 THEN
+                                        ACC = ACC
+                                    ELSE
+                                        ACC = I * ACC
+                                    END IF
+                                NEXT I
+                                Factorial! = ACC
+                            END FUNCTION
+                            
+                    </code>
+                </pre>
+                
+        <p>Page 1/2 mention the power series (Maclaurin/Taylor series), so let's go look that up. It's been a while and I'm rusty (hi Rusty, I'm Dad!)
+            as well as the radius of convergence. As an aside, using an RPI with Mathematica on it to explore these kinds of things sounds like fun. 
     </section>
 
 </body>
