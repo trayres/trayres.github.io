@@ -45,13 +45,14 @@
 
     <p>In any event, on with the show.
 
-    <p>
+    <p>Also, Chrome won't render my MathML, so Chrome can go suck dicks, use FireFox. 
     </section>
 
     <section>
         <a id="understanding_fft_zonst"></a>
         <h2>Understanding the FFT, Zonst, 2e</h2>
         <a href="https://github.com/trayres/qb64_zonst">Git Repo - Zonst QB64 Edition</a>
+        <a href="https://github.com/trayres/matlab_zonst">Git Repo - Zonst Matlab Edition</a>
         <p> Here we're going to talk about a book I recently discovered which I think is absolutely amazing.
 
         <p>The author describes FFT's in a natural way and uses GWBASIC applications to immediately examine what's being discussed; which is great, but what are we to do?
@@ -61,7 +62,7 @@
         <p>So I'm going to do all of the suggested exercises, and see if I can expand upon them, as well as do them in both QB64 and Matlab/Octave.
 
         <p>The first program is "factorial.bas", which just computes the factorial in the traditional recursive way. Adorable. This wasn't in the book, but I thought for
-             exposition it had to be added - plus more experience with BASIC/QB64. 
+             exposition it had to be added - plus more experience with BASIC/QB64 (and an excuse to look up how to write things in Matlab, again, for the thousandth time)
              <p>  <!-- language: lang-vb -->
                  
 <pre><code>
@@ -104,7 +105,7 @@ END FUNCTION
             as well as the radius of convergence. As an aside, using an RPI with Mathematica on it to explore these kinds of things sounds like fun. 
             It looks like the section on that is buried all the way in Chapter 12 of Stewart's Calculus (6e). Well THAT doesn't sound great. Let's see what 
             if we can get some MathML for some of these equations; while you can do that from Mathematica, even that input seems clunky, so I'm trying MathCast and Lyx.
-            <p>Sine expansion:
+            <p>Sine/Cosine expansions:
                     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                         <mrow>
                           <mi>S</mi>
@@ -203,11 +204,7 @@ END FUNCTION
                         </mrow>
                       </math>
 
-              <p> Well that almost work(s) - Page only renders in FireFox. Fuck Chrome. 
-
-
-
-
+              <p> Well that almost work(s) - Page only renders in FireFox. Fuck Chrome, it doesn't support MathML. 
     </section>
 
 </body>
