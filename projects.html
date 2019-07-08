@@ -64,47 +64,147 @@
              exposition it had to be added - plus more experience with BASIC/QB64. 
              <p>  <!-- language: lang-vb -->
                  
-                <pre><code>
-                REM Factorial computation, in the traditional recursive style
-                DIM a
-                a = Factorial!(5)
-                PRINT "Factorial(5):"; a
-                    
-                    
-                FUNCTION Factorial! (N!)
-                IF N! = 0 THEN Factorial! = 1 ELSE Factorial! = N! * Factorial!(N! - 1)
-                END FUNCTION</code></pre>
+<pre><code>
+REM Factorial computation, in the traditional recursive style
+DIM a
+a = Factorial!(5)
+PRINT "Factorial(5):"; a
+    
+    
+FUNCTION Factorial! (N!)
+IF N! = 0 THEN Factorial! = 1 ELSE Factorial! = N! * Factorial!(N! - 1)
+END FUNCTION</code></pre>
 
             <p>There's obviously some point to reading SICP, because if you see this you should recognize that it can be transformed (either by tail-call recursion or manually) into 
                 a simple for loop:
 
-                <pre>
-                    <code>
-                            REM Factorial computation in a for loop style
-                            DIM a
-                            a = Factorial!(5)
-                            PRINT "Factorial(5):"; a
-                            
-                            
-                            FUNCTION Factorial! (N!)
-                                REM Declare an accumulation variable
-                                DIM ACC
-                                ACC = 1
-                                FOR I = 0 TO N
-                                    IF I = 0 THEN
-                                        ACC = ACC
-                                    ELSE
-                                        ACC = I * ACC
-                                    END IF
-                                NEXT I
-                                Factorial! = ACC
-                            END FUNCTION
-                            
-                    </code>
-                </pre>
+<pre> <code>
+REM Factorial computation in a for loop style
+DIM a
+a = Factorial!(5)
+PRINT "Factorial(5):"; a
+
+
+FUNCTION Factorial! (N!)
+    REM Declare an accumulation variable
+    DIM ACC
+    ACC = 1
+    FOR I = 0 TO N
+        IF I = 0 THEN
+            ACC = ACC
+        ELSE
+            ACC = I * ACC
+        END IF
+    NEXT I
+    Factorial! = ACC
+END FUNCTION     
+</code></pre>
                 
         <p>Page 1/2 mention the power series (Maclaurin/Taylor series), so let's go look that up. It's been a while and I'm rusty (hi Rusty, I'm Dad!)
             as well as the radius of convergence. As an aside, using an RPI with Mathematica on it to explore these kinds of things sounds like fun. 
+            It looks like the section on that is buried all the way in Chapter 12 of Stewart's Calculus (6e). Well THAT doesn't sound great. Let's see what 
+            if we can get some MathML for some of these equations; while you can do that from Mathematica, even that input seems clunky, so I'm trying MathCast and Lyx.
+            <p>Sine expansion:
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mrow>
+                  <mi>S</mi>
+                  <mi>i</mi>
+                  <mi>n</mi>
+                  <mfenced>
+                    <mrow>
+                      <mi>x</mi>
+                    </mrow>
+                  </mfenced>
+                  <mo>=</mo>
+                  <mi>x</mi>
+                  <mo>&#x2212;</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>3</mn>
+                    </msup>
+                    <mn>3!</mn>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>5</mn>
+                    </msup>
+                    <mn>5!</mn>
+                  </mfrac>
+
+                  <mo>&#x2212;</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>7</mn>
+                    </msup>
+                    <mn>7!</mn>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mo>&#x2026;</mo>
+                </mrow>
+              </math>
+              <p> Cosine expansion:
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mrow>
+                  <mi>C</mi>
+                  <mi>o</mi>
+                  <mi>s</mi>
+                  <mfenced>
+                    <mrow>
+                      <mi>x</mi>
+                    </mrow>
+                  </mfenced>
+                  <mo>=</mo>
+                  <mn>1</mn>
+                  <mo>&#x2212;</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>2</mn>
+                    </msup>
+                    <mrow>
+                      <mn>2</mn>
+                      <mo>!</mo>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>4</mn>
+                    </msup>
+                    <mrow>
+                      <mn>4</mn>
+                      <mo>!</mo>
+                    </mrow>
+                  </mfrac>
+                  <mo>&#x2212;</mo>
+                  <mfrac>
+                    <msup>
+                      <mi>x</mi>
+                      <mn>6</mn>
+                    </msup>
+                    <mrow>
+                      <mn>6</mn>
+                      <mo>!</mo>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mo>&#x2026;</mo>
+                </mrow>
+              </math>
+
+
+
+              <p> Well that almost worked! The denominator factorial was all hosed. It ended up you had to use the "block start" and "block end" inputs in order to fully capture the denominator.
+                  Cool. I'll try Lyx later, but it looks like MathCast will work for this.
+
+
+
+
     </section>
 
 </body>
